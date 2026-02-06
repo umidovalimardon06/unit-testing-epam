@@ -23,9 +23,29 @@ public class ValidateISBNTest {
         assertTrue(validator.isValid("012000030X"));
     }
 
-    @Test
+    @Test(expected = NumberFormatException.class)
     public void isbnWithWrongLengthIsInvalid() {
         ValidateISBN validator = new ValidateISBN();
         assertFalse(validator.isValid("12345"));
     }
+
+    @Test(expected = NumberFormatException.class)
+    public void nineDigitNotAllowed() {
+        ValidateISBN validator = new ValidateISBN();
+        validator.isValid("123456789");
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void nonNumericISBNsAreNotAllowed() {
+        ValidateISBN validator = new ValidateISBN();
+        validator.isValid("helloworld");
+    }
+
+    @Test()
+    public void isbnNumberEndingXValid() {
+        ValidateISBN validator = new ValidateISBN();
+        boolean valid = validator.isValid("012000030X");
+        assertTrue(valid);
+    }
+
 }

@@ -1,56 +1,58 @@
-# TEST-DRIVEN-DEVELOPMENT (TDD)
+## Testing for exceptions
 
-Started **2003**, part of **Agile programming**
-
-> "writing tests to drive the code"
-
----
-
-## RED → GREEN → REFACTOR
-
-### 1. RED
-
-* Clearly defining what the code should do
-* Example:
-
-    * If I add `2 + 3` I should get `5`
-    * But there is **no `add()` function yet**
-
-### 2. GREEN
-
-* Make the test pass as soon as possible
-
-```python
-def add(a, b):
-    return a + b
+```java
+@Test(expected = NumberFormatException.class)
+public void []{
+    My implementation throws an exception called = NumberFormatException.class
+}
 ```
 
-### 3. REFACTOR
+**Example:**
 
-* Improve the **code quality / design** safely
-
----
-
-This process **goes iteratively**.
-
----
-
-## Testing Types
-
-* **Unit Test**
-
-    * Tests a single piece (**unit**) of logic or behavior
-
-* **Integration Test**
-
-    * Test covers the full process
+```java
+public boolean isValid(String isbn) {
+    if (isbn.length() != 10) {
+        throw new NumberFormatException();
+    }
+}
+```
 
 ---
 
-## Project Structure
+## Refactoring
 
-* `src/main` (blue)
-* `src/test` (green)
+Improving quality of code (logic, behavior) and performance **after GREEN (minimum pass)**.
 
-## Library
-* JUnit
+* add → final reusable constants
+
+---
+
+## Best Practices
+
+1. Test **one item of functionality only**
+2. Test the **business logic**, not the method
+
+   > If the method name you use for the test matches the production method name, then you are doing something wrong — you are not testing the business logic.
+3. Tests must be **consistent**
+
+**Example of an unreliable test:**
+
+```java
+@Test
+public void notAReliableTest() {
+    Date today = new Date();
+    BookStore store = new BookStore();
+    assertTrue(store.isOpen(today));
+}
+```
+
+> `today` is not consistent (it varies).
+
+---
+
+## Other Assert Methods
+
+1. `assertEquals()`
+2. `assertNull()`
+3. `assertNotNull()`
+4. `assertThat()`
