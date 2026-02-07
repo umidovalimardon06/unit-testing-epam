@@ -6,5 +6,7 @@ This repository contains multiple branches:
 
 2. [Lesson-2](https://github.com/umidovalimardon06/unit-testing-epam/tree/lesson-2)
 
-2. [Lesson-3](https://github.com/umidovalimardon06/unit-testing-epam/tree/lesson-3)
+3. [Lesson-3](https://github.com/umidovalimardon06/unit-testing-epam/tree/lesson-3)
+
+4. [Lesson-4](https://github.com/umidovalimardon06/unit-testing-epam/tree/lesson-4)
 
