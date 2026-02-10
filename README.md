@@ -1,56 +1,13 @@
-# TEST-DRIVEN-DEVELOPMENT (TDD)
+JUnit-5:
 
-Started **2003**, part of **Agile programming**
+@BeforeAll(static) 2tests -> 1logs
+@BeforeEach(non-static) 2tests -> 2logs
+@DisplayName - naming a test
+@Disabled - ignore this
+@AfterAll(static) 2tests -> 1log
+@AfterEach(non-static)  2tests -> 2log
 
-> "writing tests to drive the code"
-
----
-
-## RED → GREEN → REFACTOR
-
-### 1. RED
-
-* Clearly defining what the code should do
-* Example:
-
-    * If I add `2 + 3` I should get `5`
-    * But there is **no `add()` function yet**
-
-### 2. GREEN
-
-* Make the test pass as soon as possible
-
-```python
-def add(a, b):
-    return a + b
-```
-
-### 3. REFACTOR
-
-* Improve the **code quality / design** safely
-
----
-
-This process **goes iteratively**.
-
----
-
-## Testing Types
-
-* **Unit Test**
-
-    * Tests a single piece (**unit**) of logic or behavior
-
-* **Integration Test**
-
-    * Test covers the full process
-
----
-
-## Project Structure
-
-* `src/main` (blue)
-* `src/test` (green)
-
-## Library
-* JUnit
+assumtions -> 'run this test if the condition is met'
+assertThrows -> testing for exceptions
+@Suite(SelectPackages,SelectClasses,ExcludePackages,ExcludeClasses)
+@TestFactory - producing dynamic tests
