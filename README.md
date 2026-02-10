@@ -14,3 +14,5 @@ This repository contains multiple branches:
 
 6. [Lesson-6](https://github.com/umidovalimardon06/unit-testing-epam/tree/lesson-6)
 
+7. [Lesson-7-JUnit-reference](https://github.com/umidovalimardon06/unit-testing-epam/tree/lesson-7-JUnit-reference)
+
