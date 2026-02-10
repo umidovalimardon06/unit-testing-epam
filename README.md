@@ -16,3 +16,5 @@ This repository contains multiple branches:
 
 7. [Lesson-7-JUnit-reference](https://github.com/umidovalimardon06/unit-testing-epam/tree/lesson-7-JUnit-reference)
 
+8. [Lesson-8-AssertJ-reference](https://github.com/umidovalimardon06/unit-testing-epam/tree/lesson-8-AssertJ-reference)
+
