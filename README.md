@@ -1,58 +1,67 @@
-## JUnit 5 Overview
+## AssertJ: *(stating confidently that something is correct)*
 
-### Lifecycle Annotations
+* 99% of assertions start with `assertThat(...)`
 
-* **`@BeforeAll`** *(static)*
-  Executed **once before all tests** in the test class
-  → 2 tests → **1 execution**
+* **1. `isEqualTo()`**
 
-* **`@BeforeEach`** *(non-static)*
-  Executed **before each test method**
-  → 2 tests → **2 executions**
+    * compares object references
 
-* **`@AfterEach`** *(non-static)*
-  Executed **after each test method**
-  → 2 tests → **2 executions**
+* **2. `isEqualToCompareFieldByFieldRecursively()`**
 
-* **`@AfterAll`** *(static)*
-  Executed **once after all tests** in the test class
-  → 2 tests → **1 execution**
+    * compares by fields
 
----
+* **3. `isTrue()` / `isFalse()`**
 
-### Test Configuration & Control
+    * truth checking
 
-* **`@DisplayName`**
-  Assigns a **human-readable name** to a test or test class
+* **4. Collection / Character assertions**
 
-* **`@Disabled`**
-  **Disables** a test or test class (ignored during execution)
+* **5. Class assertions**
 
----
+    * main methods:
 
-### Assertions & Assumptions
+        * `isPublic()`
+        * `isFinal()`
+        * `isInterface()`
+        * `hasSimpleName()`
+        * `hasPackage()`
 
-* **Assumptions** (`assumeTrue`, `assumeFalse`, `assumingThat`)
-  Executes a test **only if a specified condition is met**
+* **6. File assertions**
 
-* **`assertThrows`**
-  Verifies that a **specific exception is thrown** during test execution
+    * main methods:
 
----
+        * `exists()`
+        * `isFile()`
+        * `isDirectory()`
+        * `canRead()`
+        * `canWrite()`
+        * `hasName()`
 
-### Test Suites
+* **7. Numeric assertions**
 
-* **`@Suite`**
-  Groups multiple tests into a suite using selectors:
+    * comparing by precision
 
-    * `@SelectPackages`
-    * `@SelectClasses`
-    * `@ExcludePackages`
-    * `@ExcludeClasses`
+* **8. InputStream assertions**
 
----
+    * comparing file content via streams
+    * example:
 
-### Dynamic Tests
+      ```java
+      InputStream given = File.newInputStream(...);
+      InputStream expected = File.newInputStream(...);
+  
+      assertThat(given).hasSomeContentAs(expected);
+      ```
 
-* **`@TestFactory`**
-  Generates **dynamic tests at runtime** instead of using static `@Test` methods
+* **9. Map assertions**
+
+* **10. Throwable assertions**
+
+    * inspecting exception messages
+    * stack traces
+    * causes
+
+* **11. Custom descriptions**
+
+    * `.as("...")`
+    * written before checking
